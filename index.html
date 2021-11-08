@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="calc.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Consumer Affairs - Calculator</title>
+  </head>
+  <body>
+    <!-- Title of App -->
+    <header>
+      <div class="container">
+        <h1>Mortgage Calculator</h1>
+      </div>
+    </header>
+
+    <main class="app container">
+      <!-- Calculator -->
+      <section class="calc-face">
+        <form>
+          <fieldset>
+            <legend>Change values to calculate your results</legend>
+            <!-- Years of mortgage that user will select (default 20 years)-->
+            <label for="years">Years of mortgage</label>
+            <span><strong>1</strong></span
+            ><input
+              type="range"
+              name="years"
+              class="styled-slider slider-progress"
+              min="1"
+              max="40"
+              step="1"
+              value="20"
+              id="years-range"
+              oninput="document.querySelector('#years-box').value = this.value"
+            /><span><strong>40</strong></span>
+            <input
+              type="number"
+              min="1"
+              max="40"
+              step="1"
+              value="20"
+              class="box"
+              id="years-box"
+              oninput="document.querySelector('#years-range').value = this.value"
+            /><!--Change input and output dynamically -->
+
+            <!-- Rate of interest(%) that user will select (default 5%)-->
+            <label for="rate">Rate of interest(%)</label>
+            <span><strong>0.1</strong></span
+            ><input
+              type="range"
+              name="rate"
+              class="styled-slider slider-progress"
+              min=".1"
+              max="10"
+              step="0.1"
+              value="5"
+              id="rate-range"
+              oninput="document.querySelector('#rate-box').value = this.value"
+            /><span><strong>10</strong></span>
+            <input
+              type="number"
+              min=".1"
+              max="10"
+              step=".1"
+              value="5"
+              class="box"
+              id="rate-box"
+              oninput="document.querySelector('#rate-range').value = this.value"
+            /><!--Change input and output dynamically -->
+            <div class="annual full">
+              <label for="loan">Loan Amount</label>
+              <div class="form-group">
+                <div class="input-icon">
+                  <input
+                    type="text"
+                    name="loan"
+                    class="box"
+                    id="loan"
+                    placeholder="400000"
+                    pattern="[0-9]{1-6}"
+                    title="Must be a dollar amount(numbers) $1 - $999,999"
+                    required="required"
+                  />
+                  <i>$</i>
+                </div>
+                <span class="error loan"></span
+                ><!--error message will be added if incorrect information is put in-->
+              </div>
+            </div>
+            <div class="annual half">
+              <label for="tax">Annual Tax</label>
+              <div class="form-group">
+                <div class="input-icon">
+                  <input
+                    type="text"
+                    name="tax"
+                    class="box"
+                    id="tax"
+                    placeholder="1000"
+                    pattern="[0-9]{1-6}"
+                    title="Must be a dollar amount(numbers) $1 - $999,999"
+                    required="required"
+                  />
+                  <i>$</i>
+                </div>
+                <span class="error tax"></span
+                ><!--error message will be added if incorrect information is put in-->
+              </div>
+            </div>
+            <div class="annual half right">
+              <label for="insurance">Annual Insurance</label>
+              <div class="form-group">
+                <div class="input-icon">
+                  <input
+                    type="text"
+                    name="insurance"
+                    class="box"
+                    id="insurance"
+                    placeholder="300"
+                    pattern="[0-9]{1-6}"
+                    title="Must be a dollar amount (numbers)"
+                    required="required"
+                  />
+                  <i>$</i>
+                </div>
+                <span class="error insurance"></span
+                ><!--error message will be added if incorrect information is put in-->
+              </div>
+            </div>
+          </fieldset>
+          <input
+            type="submit"
+            value="Calculate"
+          /><!--Button to calculate and show results-->
+        </form>
+      </section>
+
+      <!-- SUMMARY (results will show here)-->
+      <section class="summary">
+        <h2>Your results</h2>
+        <div class="results">
+          <p class="resultTitle">Principle & interest</p>
+          <p class="resultAmount">$ <span id="results-principle"> --</span></p>
+          <p class="resultTitle">Tax</p>
+          <p class="resultAmount">$ <span id="results-tax"> --</span></p>
+          <p class="resultTitle">Insurance</p>
+          <p class="resultAmount">$ <span id="results-insurance"> --</span></p>
+        </div>
+        <div class="total">
+          <h4>Total Monthly Payment</h4>
+          <p class="resultAmount">$ <span id="results-total"> --</span></p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

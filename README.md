@@ -1,4 +1,5 @@
 # Mortgage-Calcultor
+Javascript Practice
 Calculator to find your monthly principle/interest, tax, insurance, and total payment
 Use range slider to input number of years for mortgage
 Use range slider to input rate of interest percentage
